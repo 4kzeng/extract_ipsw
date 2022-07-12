@@ -37,22 +37,25 @@ int main(int argc, char** argv){
     }
 
 
-    for(int i=0; i < argc; i++)
+    for(int i=1; i < argc; i++)
     {
         if(strcmp(argv[i], "-d") == 0){
             strcpy(argDeviceModel, argv[i+1]);
+            i++;
         }
         else if(strcmp(argv[i], "-c") == 0){
             strcpy(argComponent, argv[i+1]);
+            i++;
         }
         else if(strcmp(argv[i], "-u") == 0){
             isErase = false;
         }
         else if(strcmp(argv[i], "-o") == 0){
             strcpy(argOutPath, argv[i+1]);
+            i++;
         }
         else{
-            strcpy(argFirmwarePath, argv[i+1]);
+            strcpy(argFirmwarePath, argv[i]);
         }
     }
 

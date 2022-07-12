@@ -98,7 +98,7 @@ int extract_memory(const char *ipsw, const char* internal_path, unsigned char **
 
 int extract_file(const char* ipsw, const char* internal_path, const char* out_path)
 {
-    const size_t buffersize = 0;
+    const size_t buffersize = 2048;
     unsigned char* buffer[buffersize];
     FILE* fdOut = NULL;
 
@@ -138,6 +138,7 @@ int extract_file(const char* ipsw, const char* internal_path, const char* out_pa
 
     while(true){
         uint64_t readBytes =  zip_fread(zfile, buffer, buffersize);
+        //printf("reading bytes..........%lld\n", readBytes);
         if( readBytes == 0 ){
             break;
         }
